@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "dgSpecHash": "3FU8Nj9pYIyli2905PBoFH+h7AvKYVljXUlCSqzY8pg+Hf2QzOZSaSWkefYIzOx3eYVOX7fiAn2GuLBtWbcOnQ==",
+  "success": false,
+  "projectFilePath": "C:\\Users\\TOSHİBA\\Source\\Repos\\AvukatProject\\AvukatProjectAPI\\AvukatProjectAPI.csproj",
+  "expectedPackageFiles": [],
+  "logs": [
+    {
+      "code": "NU1301",
+      "level": "Error",
+      "message": "Unable to load the service index for source https://api.nuget.org/v3/index.json.",
+      "libraryId": "Swashbuckle.AspNetCore"
+    }
+  ]
+}

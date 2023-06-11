@@ -1,0 +1,98 @@
+<div class="main-content" *ngFor="let question of question">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="col-md-2">
+                    <a mat-raised-button class="btn btn-secondary border border-info " (click)="goToQuestionList()"><- Geri Dön</a>
+                        <a  *ngIf="question.state === false" class="nav-link btn btn-outline-primary" href="javascript:void(0)" (click)="otherLawyers()" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                           Soruyu Başka Avukata Gönder
+                        </a>
+                        <div class="dropdown-menu  " aria-labelledby="navbarDropdownMenuLink">
+                            <a class="dropdown-item " *ngFor="let lawyer of lawyers" (click)="putQuestion(question.id,question.question,lawyer.id,question.users.id)" href="javascript:void(0)">{{lawyer.name}}</a>
+                        </div>
+                </div>
+                <div class="card">
+                    <div class="card-header card-header-info">
+                        <div class="row">
+                        <div class="col-md-12" >
+                            <h4 class="card-title">Soru</h4>
+                            <p class="card-category">SORU ID : {{question.id}}</p>
+                        </div>
+                    </div>
+                    </div>
+                    <div class="card-body">
+                        <blockquote _ngcontent-fhv-c100="" class="blockquote">
+                            <p _ngcontent-fhv-c100=""> {{question.question}} </p>
+                            <small _ngcontent-fhv-c100="">Kullanıcı  : {{question.users.userName}} </small>
+                        </blockquote>
+                    </div>
+                </div>
+            </div>
+            <div class="card" *ngIf="question.state === false else elseBlock" >
+                <div class="card-header card-header-info" >
+                    <h4 class="card-title">Cevap </h4>
+                    <div class="card-category "> 
+
+                        <p class="float-right">Gönderen :{{question.lawyers.name}} </p>
+                        <p class="float-left">Alıcı : {{question.users.userName}} </p>
+                     </div>
+                </div>
+                <div class="card-body"  >
+                    <form>
+                        <div class="row">
+                            <div class="col-md-12">
+                            <mat-form-field class="example-full-width">
+                                <textarea #answer matInput name="answer" id="answer" placeholder="Cevap Yaz"></textarea>
+                            </mat-form-field>
+                                <!-- <div class="form-group">
+
+                                    <div class="form-group">
+                                        <label class="bmd-label-floating"> Lamborghini Mercy, Your chick she so thirsty, I'm in that two seat Lambo.</label>
+                                        <textarea class="form-control" rows="5"></textarea>
+                                    </div>
+                                </div> -->
+                            </div>
+                        </div>
+                        <button mat-raised-button type="submit" class="btn btn-info pull-right" (click)="postAnswer(answer,question.id,question.users.id)">Cevabı Gönder</button>
+                        <div class="clearfix"></div>
+                    </form>
+                </div>
+            </div>
+            <ng-template #elseBlock>
+                <div class="card col-md-12" >
+                    <div class="card-header card-header-info">
+                        <h4 class="card-title">Cevap</h4>
+                        <div class="card-category "> 
+                            <p class="card-category">CEVAP ID : {{answer.id}}</p>
+                            <p class="float-right">Gönderen :{{question.lawyers.name}} </p>
+                            <p class="float-left">Alıcı : {{question.users.userName}} </p>
+                         </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-11">
+                                <blockquote _ngcontent-fhv-c100="" class="blockquote">
+                                    <mat-form-field class="example-full-width">
+                                        <textarea #newAnswer matInput name="newAnswer" id="newAnswer" placeholder="Cevap Yaz" [disabled]="!isEditMode">{{answer.answer}}</textarea>
+                                    </mat-form-field>
+                                </blockquote>
+                            </div>
+                            <div class="col-md-1">
+                                <button mat-raised-button type="button" (click)="toggleEditMode()" matTooltip="İptal Et" [matTooltipPosition]="'above'" class="btn btn-danger btn-lg btn-block" *ngIf="isEditMode">
+                                    <i class="material-icons">close</i>
+                                </button>
+                                <button mat-raised-button type="button" (click)="toggleEditMode()" matTooltip="Cevabı Düzenle" [matTooltipPosition]="'above'" class="btn btn-info btn-lg btn-block" *ngIf="!isEditMode">
+                                    <i class="material-icons">edit</i>
+                                </button>
+                                <button mat-raised-button type="button" (click)="putAnswer(answer.id,newAnswer,question.id,question.users.id)" matTooltip="Cevabı Gönder" [matTooltipPosition]="'above'" class="btn btn-success btn-lg btn-block" *ngIf="isEditMode">
+                                    <i class="material-icons">done</i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </ng-template>
+        </div>
+    </div>
+  </div>
+  

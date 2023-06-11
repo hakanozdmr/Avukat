@@ -1,0 +1,135 @@
+<div class="main-content" >
+    <div class="container-fluid">
+        <div class="row">
+            
+            <div class="col-md-8">
+                <div class="col-md-2">
+                    <a mat-raised-button class="btn btn-secondary border border-info " href="user/list-question"><- Geri Dön</a>
+                </div>
+                <div class="card">
+                    <div class="card-header card-header-info">
+                        <div class="row">
+                        <div class="col-md-8" >
+                            <h4 class="card-title ">Sorum</h4>
+                            <p class="card-category">SORU ID : {{question.id}}</p>
+                        </div>
+                    </div>
+                    </div>
+                    <div class="card-body">
+                        <blockquote _ngcontent-fhv-c100="" class="blockquote">
+                            <p _ngcontent-fhv-c100=""> {{question.question}} </p>
+                            <small _ngcontent-fhv-c100=""> {{question.users.userName}} </small>
+                        </blockquote>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card card-profile">
+                    <div class="card-avatar">
+                        <a href="javascript:void(0)">
+                            <img class="img" src="./assets/img/lawyers/{{question.lawyersId}}.jpg" />
+                        </a>
+                    </div>
+                    <div class="card-body">
+                        <h6 class="card-category">Branş : <h6 class=" text-primary"> {{question.lawyers.category.name}}</h6> </h6>
+                        <h4 class="card-title"> {{question.lawyers.name}}</h4>
+                        <p class="card-description">
+                            {{question.lawyers.about}}
+                        </p>       
+                    </div>
+                </div>
+            </div>
+            <div class="card col-12" *ngIf="question.state === true else elseBlock" >
+                <div class="card-header card-header-info">
+                    <h4 class="card-title">Cevap</h4>
+                    <p class="card-category">CEVAP ID :{{answer.id}}</p>
+                </div>
+                <div class="card-body">
+                    <blockquote _ngcontent-fhv-c100="" class="blockquote"><p _ngcontent-fhv-c100="">{{answer.answer}} </p>
+                        <small _ngcontent-fhv-c100=""  > {{question.lawyers.name}}, {{question.lawyers.category.name}} </small>
+                    </blockquote>
+                </div>
+            </div>
+            <div class="col-12" *ngIf="question.state === true">
+                <div class="row"> 
+                    <div class="card-header card-header-info col">
+                        <h5 class="text-center" >Cevabı Beğendiniz mi ? Eğer Beğendiyseniz Lütfen Cevabı Değerlendiriniz.</h5>
+                        <div class="text-center" role="group" aria-label="Basic example">
+                            <button #rating1 type="button" (click)="takeRating(+rating1.value)" class="btn btn-outline m-1" value="1" >
+                                <i class="material-icons">star</i>
+                            </button>
+                            <button #rating2 type="button" (click)="takeRating(+rating2.value)" class="btn btn-outline m-1" value=2>
+                                <i class="material-icons" >star</i>
+                                <i class="material-icons">star</i>
+                            </button>
+                            <button #rating3 type="button" (click)="takeRating(+rating3.value)" class="btn btn-outline m-1" value="3">
+                                <i class="material-icons">star</i>
+                                <i class="material-icons">star</i>
+                                <i class="material-icons">star</i>
+                            </button>
+                            <button #rating4 type="button" (click)="takeRating(+rating4.value)" class="btn btn-outline m-1" value="4">
+                                <i class="material-icons">star</i>
+                                <i class="material-icons">star</i>
+                                <i class="material-icons">star</i>
+                                <i class="material-icons">star</i>
+                            </button>
+                            <button #rating5 type="button" (click)="takeRating(+rating5.value)" class="btn btn-outline m-1" value="5">
+                                <i class="material-icons">star</i>
+                                <i class="material-icons">star</i>
+                                <i class="material-icons">star</i>
+                                <i class="material-icons">star</i>
+                                <i class="material-icons">star</i>
+                            </button>
+                            
+                            <button type="button" [disabled]="rating < 1 || rating > 5"  (click)="putAnswer(answer.id,rating,answer.answer,answer.questionsId,answer.usersId)" class="btn btn-primary m-1">
+                                Değerlendir
+                            </button>
+                            <h5 class="text-center" >Eğer Cevabı Beğenmediyseniz Diğer Avukatlara Sorabilirsiniz</h5>
+                            <a  class="nav-link btn btn-outline-primary" href="javascript:void(0)" (click)="getOtherLawyers()" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Soruyu Başka Avukata Sor
+                             </a>
+                             <div class="dropdown-menu block " aria-labelledby="navbarDropdownMenuLink">
+                                <a class="dropdown-item" *ngFor="let lawyer of otherLawyers" (click)="putQuestion(answer.questionsId,answer.questions.question,lawyer.id,answer.usersId)" href="javascript:void(0)">{{lawyer.name}}</a>
+                            </div>
+                            
+                             <!-- <h5 class="text-center" >Yada Avukata Not Gönderebilirsiniz</h5>
+                             <div class="card ">
+                                <div class="card-header card-header-info" >
+                                    <h4 class="card-title">Not Gönder </h4>
+                                    <p class="card-category">Eğer cevabı beğenmediyseniz avukata not göndererek yeni cevap isteyebilirsiniz</p>
+                                </div>
+                                <div class="card-body">
+                                    <form>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                            
+                                            <mat-form-field class="example-full-width">
+                                                <textarea #question matInput name="question" id="question" matInput placeholder=""></textarea>
+                                            </mat-form-field>
+                                                
+                                            </div>
+                                        </div>
+                                        <button mat-raised-button type="submit" class="btn btn-info pull-right">Gönder</button>
+                                        <div class="clearfix"></div>
+                                    </form>
+                                </div>
+                            </div> -->
+                        </div>
+                    </div>  
+                </div>
+            </div>    
+            <ng-template #elseBlock>
+                <div class="card col-md-8" >
+                    <div class="card-header card-header-info">
+                        <h4 class="card-title">Cevap</h4>
+                    </div>
+                    <div class="card-body">
+                        <blockquote _ngcontent-fhv-c100="" class="blockquote"><small _ngcontent-fhv-c100=""> CEVAP BEKLENİYOR...</small>
+                        </blockquote>
+                    </div>
+                </div>
+            </ng-template>
+        </div>
+    </div>
+  </div>
+  

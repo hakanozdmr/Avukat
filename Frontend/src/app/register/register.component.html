@@ -1,0 +1,110 @@
+<nav class="navbar navbar-expand-lg fixed-top navbar-transparent" color-on-scroll="500">
+    <div class="container">
+        <div class="navbar-translate">
+            <a class="navbar-brand" href="https://www.creative-tim.com">Avukata Sor</a>
+            <button class="navbar-toggler navbar-burger" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-bar"></span>
+                <span class="navbar-toggler-bar"></span>
+                <span class="navbar-toggler-bar"></span>
+            </button>
+        </div>
+        <div class="navbar-collapse" id="navbarToggler">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item" >
+                    <a class="nav-link" rel="tooltip" title="Follow us on Twitter" data-placement="bottom" href="https://twitter.com/CreativeTim" target="_blank">
+                        <i class="fa fa-twitter"></i>
+                        <p class="d-lg-none">Twitter</p>
+                    </a>
+                </li>
+                <li class="nav-item" >
+                    <a class="nav-link" rel="tooltip" title="Like us on Facebook" data-placement="bottom" href="https://www.facebook.com/CreativeTim" target="_blank">
+                        <i class="fa fa-facebook-square"></i>
+                        <p class="d-lg-none">Facebook</p>
+                    </a>
+                </li>
+                <li class="nav-item" >
+                    <a class="nav-link" rel="tooltip" title="Follow us on Instagram" data-placement="bottom" href="https://www.instagram.com/CreativeTimOfficial" target="_blank">
+                        <i class="fa fa-instagram"></i>
+                        <p class="d-lg-none">Instagram</p>
+                    </a>
+                </li>
+                <li class="nav-item" >
+                    <a class="nav-link" rel="tooltip" title="Star on GitHub" data-placement="bottom" href="https://www.github.com/CreativeTimOfficial/paper-kit-2-angular" target="_blank">
+                        <i class="fa fa-github"></i>
+                        <p class="d-lg-none">GitHub</p>
+                    </a>
+                </li>
+                <li class="nav-item" >
+                    <a href="home" class="btn btn-outline-info btn-round">Anasayfaya Dön</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<div class="wrapper">
+    <div class="page-header" style="background-image: url('./assets/img/antoine-barres.jpg');">
+        <div class="filter"></div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-4 col-sm-6 mr-auto ml-auto">
+                      <div class="card card-register ">
+                        <a href="login"  class="btn btn-outline-info col-md-4 btn-round">Geri Dön</a>
+                          <h3 class="title">Kayıt Ol</h3>
+                          <form class="register-form">
+                            <label>İsim Soyisim</label>
+                              <div class="input-group form-group-no-border" [ngClass]="{'input-group-focus':focus1===true}">
+                                <div class="input-group-prepend">
+                                  <span class="input-group-text">
+                                    <i class="fa fa-user" aria-hidden="true"></i>
+                                  </span>
+                                </div>
+                                  <input type="text" #username  name="username" id="username" class="form-control" placeholder="İsim Soyisim" (focus)="focus1=true" (blur)="focus1=false" >
+                              </div>
+              
+                              <label>Eposta</label>
+                              <div class="input-group form-group-no-border" [ngClass]="{'input-group-focus':focus===true}">
+                                <div class="input-group-prepend">
+                                  <span class="input-group-text">
+                                    <i class="fa fa-envelope" aria-hidden="true"></i>
+                                  </span>
+                                </div>
+
+                                  <input type="text" #email  name="email" id="email" class="form-control" placeholder="Eposta" (focus)="focus=true" (blur)="focus=false" >
+                              </div>
+
+                              <label>Şifre</label>
+                              <div class="input-group form-group-no-border" [ngClass]="{'input-group-focus':focus1===true}">
+                                <div class="input-group-prepend">
+                                  <span class="input-group-text">
+                                    <i class="fa fa-key" aria-hidden="true"></i>
+                                  </span>
+                                </div>
+                                  <input type="text" #password  name="password" id="password" class="form-control" placeholder="Şifre" (focus)="focus1=true" (blur)="focus1=false" >
+                              </div>
+                              <div class="row my-4">
+                                <div class="col-12">
+                                  <div class="custom-control custom-control-alternative custom-checkbox">
+                                    <input class="custom-control-input" id="customCheckRegister" type="checkbox">
+                                    <label class="custom-control-label" for="customCheckRegister">
+                                      <span>
+                                        <a href="javascript:void(0)">Gizlilik Politikası</a>
+                                      </span> 'nı okudum ve onaylıyorum'
+                                    </label>
+                                  </div>
+                                </div>
+                              </div>
+                              <button class="btn btn-info btn-block btn-round" (click)="registerTry(username,email,password)">Kayıt Ol</button>
+                          </form>
+                          
+                      </div>
+                    </div>
+                </div>
+                <!-- <div class=" register-footer text-center">
+                    <h6 class=" ml-auto mr-auto">Designed and coded by
+                            <h6 class="text-info" >Hakan Özdemir , Emre Uğuz , Çağrı Şentürk </h6>
+                    </h6>
+                </div> -->
+            </div>
+    </div>
+</div>
+<app-footer></app-footer>

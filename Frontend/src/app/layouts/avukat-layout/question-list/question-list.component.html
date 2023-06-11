@@ -1,0 +1,99 @@
+<div class="main-content">
+    
+    <!-- <button style="margin:15px;" mat-raised-button class="btn" color="primary" (click)="getAllUsers()">question QrCode Reading</button> -->
+  <div class="container-fluid" >
+    <div class="row">
+        <div class=" col-md-6 ">
+            <div class="card card-stats">
+                <div class="card-header card-header-success card-header-icon">
+                    <div class="card-icon">
+                        <i class="material-icons">assignment_turned_in</i>
+                    </div>
+                    <p class="card-category">Cevaplanan Sorular</p>
+                    <h3 class="card-title">{{countedQuestions.totalAnsweredQuestions}}</h3>
+                </div>
+                <div class="card-footer">
+                    <div class="stats">
+                        <i class="material-icons">access_time</i>{{test | date: 'dd MMMM HH:mm:ss'}} tarihinde güncellendi
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class=" col-md-6">
+            <div class="card card-stats">
+                <div class="card-header card-header-danger card-header-icon">
+                    <div class="card-icon">
+                        <i class="material-icons">info_outline</i>
+                    </div>
+                    <p class="card-category">Cevaplanmayan Sorular</p>
+                    <h3 class="card-title">{{countedQuestions.totalQuestions-countedQuestions.totalAnsweredQuestions}}</h3>
+                </div>
+                <div class="card-footer">
+                    <div class="stats">
+                        <i class="material-icons">access_time</i> {{test | date: 'dd MMMM HH:mm:ss'}} tarihinde güncellendi
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+        <button class="btn btn-info " (click)="QuestionS()"> Tüm Sorular</button>
+        <button class="btn btn-danger" (click)="DansweredQuestionS()"> Cevaplanmayan Sorular</button>
+        <button class="btn btn-success" (click)="AnsweredQuestionS()"> Cevaplanan Sorular</button>
+      <div class="row">
+        <div class="col-md-12">
+            <div class="card" >
+                <!-- <div class="card-header card-header-info d-flex">
+                    
+                    <p class="card-category"> ...</p>
+                    <a mat-raised-button class="btn btn-success float-right" href="admin/ask-question">+ Yeni Soru</a>
+                </div> -->
+                <nav class="navbar card-header card-header-info">
+                    <h4 class="card-title">Sorulan Sorular</h4>  
+                  </nav>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table" >
+                            <thead class=" text-info">
+                                <th>
+                                    Soru Id
+                                </th>
+                                <th>
+                                    Soru
+                                </th>
+                                <th>
+                                    Durum
+                                </th>
+                            </thead>
+                            <tbody *ngFor="let question of questions;">
+                                <tr>
+                                    <td>
+                                        {{question.questionId}}
+                                    </td>
+                                    <td>
+                                        {{question.questionText}}
+                                    </td>
+                                   
+                                    
+                                    <td>
+                                        <h5 class="text-success " *ngIf="question.state else elseBlock">Cevaplandı</h5>
+                                        <ng-template #elseBlock> <h5 class="text-danger ">Cevaplanmadı</h5> </ng-template>
+                                    </td>
+                                    
+                                    <td class="text-primary">
+                                       <a *ngIf="question.state else elseBlock1" class="btn btn-outline-success"
+                                        (click)="goToQuestionDetail(question.questionId)" >Cevabı Gör
+                                       </a>
+                                       <ng-template #elseBlock1> <a class="btn btn-outline-info"
+                                        (click)="goToQuestionDetail(question.questionId)" >Soruyu Cevapla
+                                       </a> </ng-template>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>  
+      </div> 
+  </div>
+</div>

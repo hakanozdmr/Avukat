@@ -1,0 +1,78 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col">
+                    <div class="row g-0 mx-3"  >
+                        <div class="mt-5 col-md-12" *ngFor="let lawyer of lawyers" >
+                            <div class="card card-profile" >
+                                <div class="card-avatar">
+                                    <a href="javascript:void(0)">
+                                        <ng-container *ngIf="'./assets/img/lawyers/' + lawyer.id + '.jpg' as imageUrl">
+                                            <img class="img"  [src]="imageUrl" (error)="handleImageError()" />
+                                          </ng-container>
+                                          <ng-template #marc>
+                                            <img class="img" src="./assets/img/faces/marc.jpg" />
+                                          </ng-template>
+                                          <ng-container *ngIf="!(('./assets/img/lawyers/' + lawyer.id + '.jpg') || showDefaultImage); else marc">
+                                            <img class="img" src="./assets/img/faces/marc.jpg" />
+                                          </ng-container>
+                                    </a>
+                                </div>
+                                <div class="card-body">
+                                    <h6 class="card-category">Branş : <h6 class=" text-primary"> {{lawyer.category.name}}</h6> </h6>
+                                    <h4 class="card-title">{{lawyer.name}}</h4>
+                                    <p class="card-description">
+                                        Hakkımda : {{lawyer.about}}
+                                    </p>
+                                    <a href="javascript:void(0)" class="btn btn-info disabled" (click)="showCard(lawyer.id)"  id="card-{{lawyer.id}}-button">İletişime Geç</a>
+                                    <p class="card-description mt-3">
+                                        Email : {{lawyer.email}}
+                                    </p>
+                                    <p class="card-description">
+                                        Telefon : {{lawyer.email}}
+                                    </p>
+                                    
+                                    
+                                </div>
+                            </div>
+                                <div class="card " *ngIf="cardVisible && cardId === lawyer.id" >
+                                    <div class="card-header card-header-info" >
+                                        <h4 class="card-title">Mesaj</h4>
+                                        <div class="card-category "> 
+                                            <p class="float-left">Gönderen : {{user.authorizedUser.name}} </p>
+                                            <p class="float-right">Alıcı :{{lawyer.name}} </p>
+                                         </div>
+                                        
+                                    </div>
+                                    <div class="card-body">
+                                        <form>
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                <!-- <label>About Me</label> -->
+                                                <mat-form-field class="example-full-width">
+                                                    <textarea #question matInput name="question" id="question" matInput placeholder=""></textarea>
+                                                </mat-form-field>
+                                                    <!-- <div class="form-group">
+                
+                                                        <div class="form-group">
+                                                            <label class="bmd-label-floating"> Lamborghini Mercy, Your chick she so thirsty, I'm in that two seat Lambo.</label>
+                                                            <textarea class="form-control" rows="5"></textarea>
+                                                        </div>
+                                                    </div> -->
+                                                </div>
+                                            </div>
+                                            <button mat-raised-button type="submit" class="btn btn-info pull-right" (click)="postQuestion(question,lawyer.id,user.id)">Soruyu Gönder</button>
+                                            <div class="clearfix"></div>
+                                        </form>
+                                    </div>
+                                </div>
+                        </div>
+                        
+                        <!-- Diğer Avukat Kart Buraya Gelicek -->
+                    </div>
+                    
+            </div>
+        </div>
+    </div>
+  </div>
+  
