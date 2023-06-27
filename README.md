@@ -1,7 +1,6 @@
 # Avukat
 
- #### .NET Core 6 Tabanlı Bir API ile Avukat Soru-Cevap Sistemi ve Otomatik Cevaplama
-Özelliği Geliştirme
+ #### .NET Core 6 Tabanlı Bir API ile Avukat Soru-Cevap Sistemi ve Otomatik Cevaplama Özelliği Geliştirme
 
 .Net Core 6 tabanlı bir API kullanarak geliştirilen avukat soru-cevap
 sistemi. Bu proje, hukuk alanında yapay zekanın kullanımını
