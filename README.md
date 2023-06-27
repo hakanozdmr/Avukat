@@ -14,6 +14,7 @@ ele almakta ve avukatların iş yükünü azaltmayı hedeflemektedir.
 - [Hakan Özdemir]((https://github.com/hakanozdmr)) tasarım ve geliştirme için.
 - [Emre Uğuz]((https://github.com/Emre253412)) tasarım ve geliştirme için.
 - [Çağrı Şentürk]((https://github.com/Symbytex)) tasarım ve geliştirme için.
+- * [ShaanCoding](https://github.com/ShaanCoding/)
 
 ## Ekran Görüntüleri
 
