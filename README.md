@@ -1,3 +1,3 @@
 # Avukat
 
- <img src="https://github.com/hakanozdmr/Avukat/blob/main/Project-ss/Avukat%20Detay%201.PNG" alt="alt text" width="500" height="1000">
+ <img src="https://github.com/hakanozdmr/Avukat/blob/main/Project-ss/Avukat%20Detay%201.PNG" alt="alt text" width="1000" height="500">
