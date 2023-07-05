@@ -29,5 +29,5 @@ ele almakta ve avukatların iş yükünü azaltmayı hedeflemektedir.
  <img src="https://github.com/hakanozdmr/Avukat/blob/main/Project-ss/Avukat%20Home.PNG" alt="alt text" >
 
 
- ### Daha fazla ekran görüntüsüne [buradan](https://github.com/hakanozdmr/Avukat/tree/main/Project-ss) ulaşabilirsiniz.
+ #### Daha fazla ekran görüntüsüne [buradan](https://github.com/hakanozdmr/Avukat/tree/main/Project-ss) ulaşabilirsiniz.
 
