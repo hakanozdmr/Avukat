@@ -4,7 +4,7 @@
 
 .Net Core 6 tabanlı bir API kullanarak geliştirilen avukat soru-cevap
 sistemi. Bu proje, hukuk alanında yapay zekanın kullanımını
-ele almakta ve avukatların iş yükünü azaltmayı hedeflemektedir.
+ele almakta ve avukatların iş yükünü azaltmayı hedeflemektedir.,
 
 
 
